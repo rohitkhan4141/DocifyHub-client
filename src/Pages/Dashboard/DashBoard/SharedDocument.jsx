@@ -20,7 +20,7 @@ const SharedDocuments = () => {
         queryKey: ["documents", user?._id],
         queryFn: async () => {
             const res = await fetch(
-                `http://localhost:5000/api/v1/docs/documents/share/${user?._id}`,
+                `https://docfyhub.adaptable.app/api/v1/docs/documents/share/${user?._id}`,
                 {
                     headers: {
                         authorization: `bearer ${localStorage.getItem("token")}`,

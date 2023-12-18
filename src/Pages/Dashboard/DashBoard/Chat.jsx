@@ -12,12 +12,10 @@ const Chat = () => {
     const userId = 25;
     useEffect(() => {
         // Connect to the server
-        const newSocket = io('http://localhost:5000'); // Change URL to your server's URL
-
+        const newSocket = io('https://docfyhub.adaptable.app'); 
         setSocket(newSocket);
 
         return () => {
-            // Disconnect the socket when component unmounts
             if (socket) {
                 socket.disconnect();
             }
@@ -58,28 +56,6 @@ const Chat = () => {
 
 
     return (
-
-        // <div className='h-screen' style={{ backgroundImage: 'url(blob:https://web.whatsapp.com/2a7f76ba-a8c7-4103-ac6f-24f07f111fe8)' }}>
-        //     <div className='mx-10'>
-        //     <h1 className='text-xl font-bold py-10'>Chat Room</h1>
-        //     <div>
-        //         {receivedMessages.map((msg, index) => (
-        //             <ChatBubble key={index} msg={msg} />
-        //         ))}
-
-        //     </div>
-        //     <div className='flex gap-x-3 mt-8'>
-        //         <input
-        //             type="text"
-        //             value={message}
-        //             onChange={(e) => setMessage(e.target.value)}
-        //             placeholder="Type your message..."
-        //             className="input input-bordered input-accent w-full max-w-xs"
-        //         />
-        //         <button className='btn btn-accent' onClick={sendMessage}>Send</button>
-        //     </div>
-        //     </div>
-        // </div>
         <div className='flex flex-col justify-between h-screen' style={{ backgroundImage: 'url(blob:https://web.whatsapp.com/2a7f76ba-a8c7-4103-ac6f-24f07f111fe8)' }}>
         <div className='mx-10'>
             <h1 className='text-xl font-bold py-10'>Chat Room</h1>

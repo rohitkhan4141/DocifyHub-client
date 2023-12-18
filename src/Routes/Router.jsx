@@ -53,7 +53,7 @@ const router = createBrowserRouter([
         path: "/dashboard/editDocument/:documentId",
         element: <Document />, loader: async ({ params }) =>
           await fetch(
-            `http://localhost:5000/api/v1/docs/documents/test/${params.documentId}`,
+            `https://docfyhub.adaptable.app/api/v1/docs/documents/test/${params.documentId}`,
             {
               headers: {
                 "authorization": `bearer ${localStorage.getItem("token")}`,

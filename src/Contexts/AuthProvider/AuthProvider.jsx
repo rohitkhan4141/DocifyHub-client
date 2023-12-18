@@ -47,7 +47,7 @@ const AuthProvider = ({ children }) => {
   const signup = async (userData) => {
     setLoading(true); 
     try {
-      const response = await fetch('http://localhost:5000/api/v1/auth/signup', {
+      const response = await fetch('https://docfyhub.adaptable.app/api/v1/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ const AuthProvider = ({ children }) => {
   const login = async (userData) => {
     setLoading(true); 
     try {
-      const response = await fetch('http://localhost:5000/api/v1/auth/login', {
+      const response = await fetch('https://docfyhub.adaptable.app/api/v1/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -90,17 +90,20 @@ const AuthProvider = ({ children }) => {
         setToken(data.jwt);
         setUser(data.user);
         setLoading(false);
+        console.log('login success')
         toast.success('login successfully')
         return { success: true };
       } else { 
         const error = await response.json();
         setLoading(false); 
         toast.error("Wrong credentials")
+        console.log('login failed')
         return { success: false, error };
       }
     } catch (error) {
       setLoading(false);
       toast.error("Wrong credentials")
+      console.log('error e')
       return { success: false, error }; 
     }
   };
