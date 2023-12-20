@@ -20,7 +20,7 @@ const SharedDocuments = () => {
         queryKey: ["documents", user?._id],
         queryFn: async () => {
             const res = await fetch(
-                `https://docfyhub.adaptable.app/api/v1/docs/documents/share/${user?._id}`,
+                `https://peach-fishy-gallon.glitch.me/api/v1/docs/documents/share/${user?._id}`,
                 {
                     headers: {
                         authorization: `bearer ${localStorage.getItem("token")}`,
@@ -28,7 +28,6 @@ const SharedDocuments = () => {
                 }
             );
             const data = await res.json();
-            console.log(data);
             return data.result;
         },
     });

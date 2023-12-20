@@ -7,10 +7,10 @@ function CreateDocument() {
     const [inputValue, setInputValue] = useState('');
 
     const sendMessage = async (event) => {
-        event.preventDefault(); // Prevent default form submission
+        event.preventDefault();
 
         try {
-            const response = await fetch('https://docfyhub.adaptable.app/api/v1/docs/create-document', {
+            const response = await fetch('https://peach-fishy-gallon.glitch.me/api/v1/docs/create-document', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

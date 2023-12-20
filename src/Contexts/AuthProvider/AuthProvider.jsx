@@ -47,7 +47,7 @@ const AuthProvider = ({ children }) => {
   const signup = async (userData) => {
     setLoading(true); 
     try {
-      const response = await fetch('https://docfyhub.adaptable.app/api/v1/auth/signup', {
+      const response = await fetch('https://peach-fishy-gallon.glitch.me/api/v1/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -77,11 +77,12 @@ const AuthProvider = ({ children }) => {
   const login = async (userData) => {
     setLoading(true); 
     try {
-      const response = await fetch('https://docfyhub.adaptable.app/api/v1/auth/login', {
+      const response = await fetch('https://peach-fishy-gallon.glitch.me/api/v1/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
+        mode: 'cors',
         body: JSON.stringify(userData),
       });
   

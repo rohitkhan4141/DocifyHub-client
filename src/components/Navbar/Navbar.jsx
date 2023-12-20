@@ -60,7 +60,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to={"/"}>
-        <a className='ms-4 normal-case text-xl font-bold'>DocifyHub</a>
+        <p className='ms-4 normal-case text-xl font-bold'>DocifyHub</p>
         </Link>
       </div>
       <div className='navbar-center hidden lg:flex'>

@@ -13,7 +13,7 @@ const Document = () => {
   const [quill, setQuill] = useState();
   const documentId = documentData.result[0]._id
   useEffect(() => {
-    const s = io("https://docfyhub.adaptable.app");
+    const s = io("https://peach-fishy-gallon.glitch.me");
     setSocket(s);
 
     return () => {

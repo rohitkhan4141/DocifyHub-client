@@ -22,7 +22,7 @@ const AllDocuments = () => {
         queryKey: ["documents", user?._id],
         queryFn: async () => {
             const res = await fetch(
-                `https://docfyhub.adaptable.app/api/v1/docs/documents/${user?._id}`,
+                `https://peach-fishy-gallon.glitch.me/api/v1/docs/documents/${user?._id}`,
                 {
                     headers: {
                         "authorization": `bearer ${localStorage.getItem("token")}`,
@@ -42,7 +42,7 @@ const AllDocuments = () => {
     };
 
     const deleteHandler = (doc) => {
-        fetch(`https://docfyhub.adaptable.app/api/v1/docs/documents/${doc._id}`, {
+        fetch(`https://peach-fishy-gallon.glitch.me/api/v1/docs/documents/${doc._id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -62,7 +62,7 @@ const AllDocuments = () => {
     };
 
     const shareHandler = (doc,email) => {
-        fetch(`https://docfyhub.adaptable.app/api/v1/docs/documents/${doc?._id}/share`, {
+        fetch(`https://peach-fishy-gallon.glitch.me/api/v1/docs/documents/${doc?._id}/share`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
