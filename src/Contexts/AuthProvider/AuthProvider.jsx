@@ -16,7 +16,7 @@ const AuthProvider = ({ children }) => {
   const saveUserToLocalStorage = (userData) => {
     localStorage.setItem('user', JSON.stringify(userData));
   };
-  
+
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
@@ -36,16 +36,16 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     if (token) {
       localStorage.setItem('token', token);
-      setLoading(false); 
+      setLoading(false);
     } else {
       localStorage.removeItem('token');
-      setLoading(false); 
+      setLoading(false);
     }
   }, [token]);
 
   // signup
   const signup = async (userData) => {
-    setLoading(true); 
+    setLoading(true);
     try {
       const response = await fetch('https://peach-fishy-gallon.glitch.me/api/v1/auth/signup', {
         method: 'POST',
@@ -60,22 +60,22 @@ const AuthProvider = ({ children }) => {
         const data = await response.json();
         toast.success('create acount successfully')
         // setUser(data);
-        setLoading(false); 
-        return { success: true }; 
+        setLoading(false);
+        return { success: true };
       } else {
         const error = await response.json();
-        setLoading(false); 
-        return { success: false, error }; 
+        setLoading(false);
+        return { success: false, error };
       }
     } catch (error) {
-      setLoading(false); 
-      return { success: false, error }; 
+      setLoading(false);
+      return { success: false, error };
     }
   };
 
   // login
   const login = async (userData) => {
-    setLoading(true); 
+    setLoading(true);
     try {
       const response = await fetch('https://peach-fishy-gallon.glitch.me/api/v1/auth/login', {
         method: 'POST',
@@ -85,7 +85,7 @@ const AuthProvider = ({ children }) => {
         mode: 'cors',
         body: JSON.stringify(userData),
       });
-  
+
       if (response.ok) {
         const data = await response.json();
         setToken(data.jwt);
@@ -94,9 +94,9 @@ const AuthProvider = ({ children }) => {
         console.log('login success')
         toast.success('login successfully')
         return { success: true };
-      } else { 
+      } else {
         const error = await response.json();
-        setLoading(false); 
+        setLoading(false);
         toast.error("Wrong credentials")
         console.log('login failed')
         return { success: false, error };
@@ -105,7 +105,7 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
       toast.error("Wrong credentials")
       console.log('error e')
-      return { success: false, error }; 
+      return { success: false, error };
     }
   };
 

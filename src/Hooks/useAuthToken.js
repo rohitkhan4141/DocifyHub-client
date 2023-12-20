@@ -1,22 +1,21 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 function useAuthToken() {
-    const [token, setToken] = useState('');
+  const [token, setToken] = useState("");
 
-    useEffect(() => {
-        const storedToken = localStorage.getItem('jwtToken');
-        if (storedToken) {
-            setToken(storedToken);
-        }
-    }, []);
+  useEffect(() => {
+    const storedToken = localStorage.getItem("jwtToken");
+    if (storedToken) {
+      setToken(storedToken);
+    }
+  }, []);
 
+  const removeAuthToken = () => {
+    localStorage.removeItem("jwtToken");
+    setToken("");
+  };
 
-    const removeAuthToken = () => {
-        localStorage.removeItem('jwtToken');
-        setToken('');
-    };
-
-    return [token, removeAuthToken];
+  return [token, removeAuthToken];
 }
 
 export default useAuthToken;

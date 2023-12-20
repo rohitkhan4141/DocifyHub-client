@@ -6,7 +6,7 @@ function Faq() {
         FAQ
       </h2>
       <div className="w-4/5 mx-auto mb-20">
-        <div className="collapse collapse-arrow bg-base-200">
+        <div className="collapse collapse-arrow bg-base-200 mb-5">
           <input type="radio" name="my-accordion-2" checked="checked" />
           <div className="collapse-title text-xl font-medium">
             What devices are compatible with this platform?
@@ -15,7 +15,7 @@ function Faq() {
             <p>Our platform is accessible across various devices and operating systems, including desktops, laptops, tablets, and smartphones. Whether you prefer Windows, macOS, Android, or iOS, you can seamlessly access and collaborate on your documents.</p>
           </div>
         </div>
-        <div className="collapse collapse-arrow bg-base-200">
+        <div className="collapse collapse-arrow bg-base-200 mb-5">
           <input type="radio" name="my-accordion-2" />
           <div className="collapse-title text-xl font-medium">
             How secure is the data stored on this platform?
@@ -24,7 +24,7 @@ function Faq() {
             <p> Security is our top priority. We employ robust encryption methods to safeguard your data. Additionally, our platform adheres to industry-standard security protocols, ensuring that your documents and conversations remain confidential and protected.</p>
           </div>
         </div>
-        <div className="collapse collapse-arrow bg-base-200">
+        <div className="collapse collapse-arrow bg-base-200 mb-5">
           <input type="radio" name="my-accordion-2" />
           <div className="collapse-title text-xl font-medium">
             Can I control who has access to my documents?

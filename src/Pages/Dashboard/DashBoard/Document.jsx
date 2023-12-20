@@ -5,13 +5,11 @@ import { useLoaderData } from "react-router-dom";
 import { io } from "socket.io-client";
 import { TOOLBAR_OPTIONS } from "../helper";
 
-
 const Document = () => {
-  
   const documentData = useLoaderData();
   const [socket, setSocket] = useState();
   const [quill, setQuill] = useState();
-  const documentId = documentData.result[0]._id
+  const documentId = documentData.result[0]._id;
   useEffect(() => {
     const s = io("https://peach-fishy-gallon.glitch.me");
     setSocket(s);
@@ -23,7 +21,7 @@ const Document = () => {
 
   useEffect(() => {
     if (!socket || !quill) return;
-    socket.once("load-document", document => {
+    socket.once("load-document", (document) => {
       quill.setContents(document);
       quill.enable();
     });
@@ -46,7 +44,7 @@ const Document = () => {
   useEffect(() => {
     if (!socket || !quill) return;
 
-    const handleReceiveChanges = delta => {
+    const handleReceiveChanges = (delta) => {
       quill.updateContents(delta);
     };
 
@@ -72,7 +70,7 @@ const Document = () => {
     };
   }, [socket, quill]);
 
-  const wrapperRef = useCallback(wrapper => {
+  const wrapperRef = useCallback((wrapper) => {
     if (!wrapper) return;
 
     wrapper.innerHTML = "";
@@ -91,4 +89,3 @@ const Document = () => {
 };
 
 export default Document;
-

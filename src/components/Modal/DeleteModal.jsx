@@ -6,7 +6,7 @@ const DeleteModal = ({ deleteItem, cancleDelete, deleteHandler }) => {
       <div className='modal'>
         <div className='modal-box'>
           <h3 className='font-bold text-lg'>
-            {`Want to Delete ${deleteItem?.title} ?`}
+            {`Want to Delete : ${deleteItem?.title} ?`}
           </h3>
           <div className='modal-action'>
             <label

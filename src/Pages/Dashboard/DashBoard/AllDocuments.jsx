@@ -61,20 +61,20 @@ const AllDocuments = () => {
             });
     };
 
-    const shareHandler = (doc,email) => {
+    const shareHandler = (doc, email) => {
         fetch(`https://peach-fishy-gallon.glitch.me/api/v1/docs/documents/${doc?._id}/share`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "authorization": `bearer ${localStorage.getItem("token")}`,
             },
-            body: JSON.stringify({userEmail : email}),
+            body: JSON.stringify({ userEmail: email }),
         })
             .then((res) => res.json())
             .then((data) => {
-                if(data.status == 400){
+                if (data.status == 400) {
                     toast.error("Something Went Wrong");
-                }else{
+                } else {
                     toast.success("Shared Successfully");
                 }
             })
@@ -88,69 +88,71 @@ const AllDocuments = () => {
         return <Loading></Loading>;
     }
     return (
-        <div className='overflow-x-auto w-full p-x-5 mx-10'>
-            <h2 className='text-4xl font-bold my-10'>My Documents</h2>
-            <table className='table w-full'>
-                <thead>
-                    <tr>
-                        <th>Document Title</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {documents.map((doc) => (
-                        <tr key={doc?._id}>
-                            <td>{doc?.title}</td>
-                            <td></td>
-                            <td></td>
-                            <th>
-                                <Link
-                                    to={`/dashboard/editDocument/${doc._id}`}
-                                    className='btn btn-neutral btn-sm'
-                                >
-                                    Edit
-                                </Link>
-                            </th>
-                            <th>
-                                <label
-                                    onClick={() => {setShareItem(doc)}}
-                                    htmlFor="share-modal"
-                                    className='btn btn-accent btn-sm'
-                                >
-                                    Share
-                                </label>
-                            </th>
-                            <td>
-                                <label
-                                    onClick={() => setDeleteItem(doc)}
-                                    htmlFor='delete-modal'
-                                    className='btn btn-error btn-sm'
-                                >
-                                    Delete
-                                </label>
-                            </td>
+        <div style={{ backgroundImage: 'url(https://res.cloudinary.com/ddfwus0oi/image/upload/v1703063517/WhatsApp_Image_2023-12-18_at_10.39.43_PM_svflz5.jpg)' }}>
+            <div className='overflow-x-auto w-full lg:p-x-5 lg:mx-10 min-h-screen' >
+                <h2 className='text-4xl font-bold my-10'>My Documents</h2>
+                <table className='table w-full'>
+                    <thead>
+                        <tr>
+                            <th>Document Title</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
-            {deleteItem && (
-                <DeleteModal
-                    deleteItem={deleteItem}
-                    cancleDelete={cancleDelete}
-                    deleteHandler={deleteHandler}
-                />
-            )}
-            {
-                shareItem &&(<ShareModal 
-                    shareItem = {shareItem}
-                    cancelShare = {cancelShare}
-                    shareHandler = {shareHandler}
-                    setShareItem={setShareItem}
-                />)
-            }
+                    </thead>
+                    <tbody>
+                        {documents.map((doc) => (
+                            <tr key={doc?._id}>
+                                <td>{doc?.title}</td>
+                                <td></td>
+                                <td></td>
+                                <th>
+                                    <Link
+                                        to={`/dashboard/editDocument/${doc._id}`}
+                                        className='btn btn-neutral btn-sm'
+                                    >
+                                        Edit
+                                    </Link>
+                                </th>
+                                <th>
+                                    <label
+                                        onClick={() => { setShareItem(doc) }}
+                                        htmlFor="share-modal"
+                                        className='btn btn-accent btn-sm'
+                                    >
+                                        Share
+                                    </label>
+                                </th>
+                                <td>
+                                    <label
+                                        onClick={() => setDeleteItem(doc)}
+                                        htmlFor='delete-modal'
+                                        className='btn btn-error btn-sm'
+                                    >
+                                        Delete
+                                    </label>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+                {deleteItem && (
+                    <DeleteModal
+                        deleteItem={deleteItem}
+                        cancleDelete={cancleDelete}
+                        deleteHandler={deleteHandler}
+                    />
+                )}
+                {
+                    shareItem && (<ShareModal
+                        shareItem={shareItem}
+                        cancelShare={cancelShare}
+                        shareHandler={shareHandler}
+                        setShareItem={setShareItem}
+                    />)
+                }
+            </div>
         </div>
     );
 };
